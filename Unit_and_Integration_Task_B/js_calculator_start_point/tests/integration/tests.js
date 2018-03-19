@@ -134,5 +134,41 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('6');
   })
 
+  it('should be able to subtract 2 numbers and display a negative number correctly', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number3')).click();
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-2');
+  })
+
+  it('should be able to add 2 large numbers and display the correct result', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number1')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#number4')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#number6')).click();
+    element(by.css('#number7')).click();
+    element(by.css('#number8')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number1')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#number4')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#number6')).click();
+    element(by.css('#number7')).click();
+    element(by.css('#number8')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('246913578');
+  })
+
+  
+
 
 });
