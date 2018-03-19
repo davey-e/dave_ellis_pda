@@ -43,5 +43,27 @@ describe('calculator', function () {
     assert.strictEqual(actual, expected);
   })
 
+  it('should set the runningTotal when a single number button is clicked', function(){
+    const expected = 6
+    calculator.numberClick(6);
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, expected);
+  })
+
+  it('should concatonate a number to the runningTotal when multiple number buttons are clicked', function(){
+    const expected = 63
+    calculator.numberClick(6);
+    calculator.numberClick(3);
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, expected);
+  })
+
+  it('should set newTotal to false when a number button is clicked if runningTotal is 0', function(){
+    const expected = false;
+    calculator.numberClick(6);
+    const actual = calculator.newTotal;
+    assert.strictEqual(actual, expected);
+  })
+
 
 });
