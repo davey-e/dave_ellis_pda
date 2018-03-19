@@ -163,5 +163,22 @@ describe('calculator', function () {
     assert.strictEqual(actual, expected);
   })
 
+  it('should set the running total to 0 when the clear button is clicked', function(){
+    const expected = 0;
+    calculator.numberClick(6);
+    calculator.clearClick();
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, expected);
+  })
+
+  it('should set the previous operator and previous total to null if running total is 0 when the clear button is clicked', function(){
+    const expected = null;
+    calculator.clearClick();
+    const previousOperatorActual = calculator.previousOperator;
+    assert.strictEqual(previousOperatorActual, expected);
+    const previousTotalActual = calculator.previousTotal;
+    assert.strictEqual(previousTotalActual, expected);
+  })
+
 
 });
