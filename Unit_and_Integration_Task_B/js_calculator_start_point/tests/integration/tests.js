@@ -116,5 +116,23 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('3');
   })
 
+  it('should be able to chain multiple operations together and display the correct result', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number5')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_subtract')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('14');
+    element(by.css('#number2')).click();
+    element(by.css('#operator_multiply')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('12');
+    element(by.css('#number3')).click();
+    element(by.css('#operator_divide')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('36');
+    element(by.css('#number6')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('6');
+  })
+
 
 });
